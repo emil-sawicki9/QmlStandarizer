@@ -5,15 +5,15 @@ CONFIG += c++17 console
 CONFIG -= app_bundle
 
 SOURCES += \
-        CodeBeautifier.cpp \
-        ProjectIterator.cpp \
-        QmlStandarizerApplication.cpp \
-        main.cpp
+        src/CodeBeautifier.cpp \
+        src/ProjectIterator.cpp \
+        src/QmlStandarizerApplication.cpp \
+        src/main.cpp
 
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    CodeBeautifier.h \
-    ProjectIterator.h \
-    QmlStandarizerApplication.h \
-    globals.h
+    src/CodeBeautifier.h \
+    src/ProjectIterator.h \
+    src/QmlStandarizerApplication.h \
+    src/globals.h
