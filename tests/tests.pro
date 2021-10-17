@@ -6,6 +6,6 @@ CONFIG -= app_bundle
 
 TEMPLATE = app
 
-SOURCES +=  tst_linecompleter.cpp
+SOURCES += tst_linecompleter.cpp
 
 include(../QmlStandarizerConsole/QmlStandarizerConsole.pri)

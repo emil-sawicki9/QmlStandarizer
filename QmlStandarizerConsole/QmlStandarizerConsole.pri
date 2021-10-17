@@ -1,11 +1,10 @@
 SOURCES += \
-        src/CodeBeautifier.cpp \
-        src/ProjectIterator.cpp \
-        src/QmlStandarizerApplication.cpp \
-        src/main.cpp
+        $$PWD/src/CodeBeautifier.cpp \
+        $$PWD/src/ProjectIterator.cpp \
+        $$PWD/src/QmlStandarizerApplication.cpp
 
 HEADERS += \
-        src/CodeBeautifier.h \
-        src/ProjectIterator.h \
-        src/QmlStandarizerApplication.h \
-        src/globals.h
+        $$PWD/src/CodeBeautifier.h \
+        $$PWD/src/ProjectIterator.h \
+        $$PWD/src/QmlStandarizerApplication.h \
+        $$PWD/src/globals.h

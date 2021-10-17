@@ -4,7 +4,6 @@
 #include <QDebug>
 #include <QHashIterator>
 #include <QFutureWatcher>
-#include <QtConcurrent>
 
 #include "globals.h"
 
@@ -33,7 +32,8 @@ void ProjectIterator::iterate(const QDir &dir, std::function<void(const QString&
 
     if (threadCount > 1) {
         QFutureWatcher<void> futureWatcher;
-        futureWatcher.setFuture(QtConcurrent::map(fileList, func));
+        // TODO fix not working QtConcurrent
+//        futureWatcher.setFuture(QtConcurrent::map(fileList, func));
         futureWatcher.waitForFinished();
     } else {
         for (int i = 0 ; i < fileList.size() ; i++) {

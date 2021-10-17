@@ -2,34 +2,36 @@
 
 // add necessary includes here
 
-class LineCompleter : public QObject
+// TODO add LineCompleterTest class and basic parse method
+// TODO add unit test cases for parsing single lines
+class LineCompleterTest : public QObject
 {
 Q_OBJECT
 
 public:
-    LineCompleter();
-    ~LineCompleter();
+    LineCompleterTest();
+    ~LineCompleterTest();
 
 private slots:
     void test_case1();
 
 };
 
-LineCompleter::LineCompleter()
+LineCompleterTest::LineCompleterTest()
 {
 
 }
 
-LineCompleter::~LineCompleter()
+LineCompleterTest::~LineCompleterTest()
 {
 
 }
 
-void LineCompleter::test_case1()
+void LineCompleterTest::test_case1()
 {
 
 }
 
-QTEST_APPLESS_MAIN(LineCompleter)
+QTEST_APPLESS_MAIN(LineCompleterTest)
 
 #include "tst_linecompleter.moc"
