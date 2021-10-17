@@ -1,21 +1,8 @@
+#include "tst_linecompleter.h"
+
 #include <QtTest>
 
-// add necessary includes here
-
-// TODO add LineCompleterTest class and basic parse method
-// TODO add unit test cases for parsing single lines
-class LineCompleterTest : public QObject
-{
-Q_OBJECT
-
-public:
-    LineCompleterTest();
-    ~LineCompleterTest();
-
-private slots:
-    void test_case1();
-
-};
+#include "LineCompleter.h"
 
 LineCompleterTest::LineCompleterTest()
 {
@@ -27,11 +14,35 @@ LineCompleterTest::~LineCompleterTest()
 
 }
 
-void LineCompleterTest::test_case1()
+void LineCompleterTest::checkEqual(const QStringList &left, const QStringList &right)
 {
-
+    QCOMPARE(left.size(), right.size());
+    for (int i = 0 ; i < left.size() ; i++) {
+        QCOMPARE(left[i], right[i]);
+    }
 }
 
-QTEST_APPLESS_MAIN(LineCompleterTest)
+void LineCompleterTest::test_completeLines_data()
+{
+    QTest::addColumn<QByteArray>("data");
+    QTest::addColumn<QStringList>("expected");
 
-#include "tst_linecompleter.moc"
+    QTest::newRow("Empty data") << QByteArray() << QStringList();
+    QTest::newRow("Formatted object property lines")
+        << QByteArray("visible: true\n"
+                      "opacity: 0.2")
+        << QStringList { "visible: true",
+                         "opacity: 0.2" };
+}
+
+void LineCompleterTest::test_completeLines()
+{
+    QFETCH(QByteArray, data);
+    QFETCH(QStringList, expected);
+    LineCompleter completer;
+    checkEqual(completer.completeLines(data), expected);
+}
+
+#ifndef SINGLE_MAIN
+QTEST_APPLESS_MAIN(LineCompleterTest)
+#endif

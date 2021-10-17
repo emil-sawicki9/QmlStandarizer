@@ -6,6 +6,13 @@ CONFIG -= app_bundle
 
 TEMPLATE = app
 
-SOURCES += tst_linecompleter.cpp
+# Uncomment to enable single main to run all tests
+#DEFINES += SINGLE_MAIN
+
+SOURCES += tst_linecompleter.cpp \
+    main.cpp
 
 include(../QmlStandarizerConsole/QmlStandarizerConsole.pri)
+
+HEADERS += \
+    tst_linecompleter.h
